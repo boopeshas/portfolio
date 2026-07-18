@@ -1,10 +1,11 @@
-// Typing Animation
+// ===== Typing Animation =====
 const roles = [
     "Mechanical Engineer",
     "Design Engineer",
     "CAD Designer",
     "Digital Engineer",
-    "Manufacturing Engineer"
+    "Manufacturing Expert",
+    "Problem Solver"
 ];
 
 let roleIndex = 0;
@@ -14,7 +15,7 @@ const typingText = document.getElementById('typing-text');
 
 function typeEffect() {
     const currentRole = roles[roleIndex];
-    
+
     if (isDeleting) {
         typingText.textContent = currentRole.substring(0, charIndex - 1);
         charIndex--;
@@ -22,22 +23,22 @@ function typeEffect() {
         typingText.textContent = currentRole.substring(0, charIndex + 1);
         charIndex++;
     }
-    
+
     let typeSpeed = isDeleting ? 40 : 70;
-    
+
     if (!isDeleting && charIndex === currentRole.length) {
-        typeSpeed = 1500;
+        typeSpeed = 2000;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         roleIndex = (roleIndex + 1) % roles.length;
-        typeSpeed = 300;
+        typeSpeed = 500;
     }
-    
+
     setTimeout(typeEffect, typeSpeed);
 }
 
-// Experience Data
+// ===== Experience Data =====
 const experiences = [
     {
         title: "Engineer – Design & Engineering Coordination",
@@ -45,23 +46,12 @@ const experiences = [
         period: "Aug 2025 – Present",
         location: "Chennai, India",
         points: [
-            "Engineering Coordination",
-            "Design Support",
-            "Manufacturing Coordination",
-            "Critical Path Analysis",
-            "Engineering Dashboards",
-            "Cross-functional collaboration"
-        ]
-    },
-    {
-        title: "Engineering Intern",
-        company: "Nidec Precision Tools",
-        period: "Aug 2023 – Sept 2023",
-        location: "India",
-        points: [
-            "Precision tooling",
-            "Tolerance critical components",
-            "Documentation"
+            "Engineering Coordination & Support for OEM Mechanical Systems",
+            "Critical Path Analysis & Timeline Optimization",
+            "Engineering Dashboards & Performance Metrics",
+            "Cross-functional Collaboration with Design & Manufacturing Teams",
+            "Documentation & Technical Reporting",
+            "Manufacturing Coordination & Quality Support"
         ]
     },
     {
@@ -70,32 +60,48 @@ const experiences = [
         period: "Oct 2023 – Nov 2023",
         location: "India",
         points: [
-            "HPDC",
-            "GDC",
-            "Precision machining",
-            "DFMA"
+            "High-Pressure Die Casting (HPDC) Design & Analysis",
+            "GD&T & Geometric Dimensioning & Tolerancing",
+            "Precision Machining Design & Optimization",
+            "DFMA (Design for Manufacturing & Assembly) Implementation",
+            "Manufacturing Process Planning"
+        ]
+    },
+    {
+        title: "Engineering Intern",
+        company: "Nidec Precision Tools",
+        period: "Aug 2023 – Sept 2023",
+        location: "India",
+        points: [
+            "Precision Tooling Design & Development",
+            "Tolerance Critical Components Manufacturing",
+            "Technical Documentation & CAD Drawings",
+            "Quality Assurance & Inspection Procedures"
         ]
     }
 ];
 
-// Populate Experience
 function populateExperience() {
     const timeline = document.querySelector('.timeline');
-    experiences.forEach(exp => {
+    timeline.innerHTML = '';
+
+    experiences.forEach((exp, index) => {
         const item = document.createElement('div');
         item.className = 'timeline-item';
-        
+        item.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+
         let pointsHTML = '';
         exp.points.forEach(point => {
             pointsHTML += `<li>${point}</li>`;
         });
-        
+
         item.innerHTML = `
             <div class="timeline-dot"></div>
-            <div class="timeline-content glass">
+            <div class="timeline-content glass-card">
                 <h3>${exp.title}</h3>
-                <p class="company">${exp.company} • ${exp.location}</p>
-                <p class="period">${exp.period}</p>
+                <p class="company"><i class="fas fa-building"></i> ${exp.company}</p>
+                <p class="period"><i class="fas fa-calendar-alt"></i> ${exp.period}</p>
+                <p style="font-size: 0.9rem; color: #94A3B8;"><i class="fas fa-map-marker-alt"></i> ${exp.location}</p>
                 <ul class="responsibilities">
                     ${pointsHTML}
                 </ul>
@@ -105,43 +111,54 @@ function populateExperience() {
     });
 }
 
-// Projects Data
+// ===== Projects Data =====
 const projects = [
     {
         title: "Bike Anti-Theft IoT System",
-        desc: "Real-time GPS tracking and security system using IoT for motorcycles.",
-        tags: ["NodeMCU", "GPS", "MPU6050", "Blynk", "IoT"]
+        desc: "Real-time GPS tracking and security system using IoT for motorcycles with mobile app integration.",
+        tags: ["NodeMCU", "GPS", "MPU6050", "Blynk", "IoT", "Real-time Tracking"]
     },
     {
         title: "Stack Emission Monitoring System",
-        desc: "Industrial IoT solution for real-time monitoring of industrial emissions.",
-        tags: ["Industrial IoT", "Digital Engineering", "Sensors"]
+        desc: "Industrial IoT solution for real-time monitoring and analysis of industrial emissions and pollutants.",
+        tags: ["Industrial IoT", "Digital Engineering", "Sensors", "Environmental Monitoring"]
     },
     {
-        title: "Battery Energy Storage System",
-        desc: "Design and simulation of BESS for industrial power optimization.",
-        tags: ["Power Systems", "Industrial Automation", "Simulation"]
+        title: "Battery Energy Storage System (BESS)",
+        desc: "Comprehensive design and simulation of battery storage systems for industrial power optimization.",
+        tags: ["Power Systems", "Industrial Automation", "Simulation", "Energy Storage"]
     },
     {
         title: "Smart Factory Digital Twin",
-        desc: "Virtual replica of manufacturing processes using IoT and simulation.",
-        tags: ["Digital Twin", "IoT", "Manufacturing", "Automation"]
+        desc: "Virtual replica of manufacturing processes using IoT sensors and real-time simulation for Industry 4.0.",
+        tags: ["Digital Twin", "IoT", "Manufacturing", "Automation", "Industry 4.0"]
+    },
+    {
+        title: "CAD Design Suite",
+        desc: "Advanced mechanical component designs using SolidWorks with FEA analysis and optimization.",
+        tags: ["SolidWorks", "CAD Design", "FEA", "Engineering Analysis"]
+    },
+    {
+        title: "Manufacturing Process Optimization",
+        desc: "DFMA analysis and process optimization for precision components reducing costs by 25%.",
+        tags: ["DFMA", "Manufacturing", "Process Optimization", "Cost Reduction"]
     }
 ];
 
-// Populate Projects
 function populateProjects() {
     const grid = document.querySelector('.projects-grid');
-    
-    projects.forEach(project => {
+    grid.innerHTML = '';
+
+    projects.forEach((project, index) => {
         const card = document.createElement('div');
-        card.className = 'project-card glass';
-        
+        card.className = 'project-card glass-card';
+        card.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+
         let tagsHTML = '';
         project.tags.forEach(tag => {
             tagsHTML += `<span class="tag">${tag}</span>`;
         });
-        
+
         card.innerHTML = `
             <div class="card-image"></div>
             <h3>${project.title}</h3>
@@ -154,30 +171,7 @@ function populateProjects() {
     });
 }
 
-// Skills Data
-const skillsList = [
-    "SolidWorks", "CATIA", "Fusion 360", "AutoCAD", "ANSYS",
-    "MATLAB", "SQL", "Java", "HTML", "CSS", "JavaScript",
-    "Manufacturing", "DFMA", "CAD Design", "Product Design",
-    "Engineering Coordination"
-];
-
-// Populate Skills
-function populateSkills() {
-    const container = document.querySelector('.skills-container');
-    
-    skillsList.forEach(skill => {
-        const card = document.createElement('div');
-        card.className = 'skill-card glass';
-        card.innerHTML = `
-            <div style="font-size: 2.8rem; margin-bottom: 1rem;">⚙️</div>
-            <div class="skill-name">${skill}</div>
-        `;
-        container.appendChild(card);
-    });
-}
-
-// Mouse Glow Effect
+// ===== Mouse Glow Effect =====
 function createMouseGlow() {
     const glow = document.createElement('div');
     glow.style.position = 'fixed';
@@ -189,77 +183,57 @@ function createMouseGlow() {
     glow.style.zIndex = '1';
     glow.style.opacity = '0';
     glow.style.transition = 'opacity 0.2s';
+    glow.style.display = 'none';
     document.body.appendChild(glow);
-    
+
     document.addEventListener('mousemove', (e) => {
         glow.style.left = `${e.clientX - 200}px`;
         glow.style.top = `${e.clientY - 200}px`;
-        glow.style.opacity = '1';
+        glow.style.opacity = '0.5';
+    });
+
+    document.addEventListener('mouseleave', () => {
+        glow.style.opacity = '0';
     });
 }
 
-// Floating Particles
+// ===== Floating Particles =====
 function createParticles() {
     const particlesContainer = document.querySelector('.particles');
     
-    for (let i = 0; i < 45; i++) {
+    if (!particlesContainer) return;
+
+    for (let i = 0; i < 50; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
-        
-        const size = Math.random() * 5 + 2;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${Math.random() * 100}vw`;
-        particle.style.top = `${Math.random() * 100}vh`;
-        particle.style.opacity = Math.random() * 0.6 + 0.2;
-        particle.style.background = '#00CFFF';
-        particle.style.borderRadius = '50%';
-        particle.style.position = 'absolute';
-        particle.style.pointerEvents = 'none';
-        
-        const duration = Math.random() * 25 + 15;
-        particle.style.animation = `float ${duration}s linear infinite`;
-        particle.style.animationDelay = `-${Math.random() * 30}s`;
-        
+
+        const size = Math.random() * 4 + 1;
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+
+        particle.style.cssText = `
+            width: ${size}px;
+            height: ${size}px;
+            background: rgba(0, 207, 255, ${Math.random() * 0.6 + 0.2});
+            border-radius: 50%;
+            position: absolute;
+            left: ${Math.random() * 100}vw;
+            top: ${Math.random() * 100}vh;
+            pointer-events: none;
+            animation: float ${duration}s linear infinite;
+            animation-delay: -${delay}s;
+        `;
+
         particlesContainer.appendChild(particle);
     }
 }
 
-// Add CSS for particles animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes float {
-        0% { transform: translateY(0) rotate(0deg); }
-        100% { transform: translateY(-120vh) rotate(360deg); }
-    }
-    
-    .particle {
-        animation: float 20s linear infinite;
-    }
-    
-    .responsibilities {
-        margin-top: 1rem;
-        padding-left: 1.2rem;
-    }
-    
-    .responsibilities li {
-        margin-bottom: 0.4rem;
-        position: relative;
-    }
-    
-    .responsibilities li:before {
-        content: '▹';
-        color: #00CFFF;
-        position: absolute;
-        left: -1.2rem;
-    }
-`;
-document.head.appendChild(style);
-
-// Scroll Progress
+// ===== Scroll Progress =====
 function initScrollProgress() {
     const progressBar = document.querySelector('.scroll-progress');
-    
+
+    if (!progressBar) return;
+
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -268,10 +242,10 @@ function initScrollProgress() {
     });
 }
 
-// Scroll Reveal
+// ===== Scroll Reveal Animation =====
 function revealOnScroll() {
     const sections = document.querySelectorAll('.section');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -280,9 +254,10 @@ function revealOnScroll() {
             }
         });
     }, {
-        threshold: 0.1
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     });
-    
+
     sections.forEach(section => {
         section.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
         section.style.opacity = '0';
@@ -291,19 +266,19 @@ function revealOnScroll() {
     });
 }
 
-// Smooth Scroll
+// ===== Smooth Scroll =====
 function smoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             if (this.getAttribute('href') === '#') return;
-            
+
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
-            
+
             if (target) {
                 const navHeight = 80;
                 const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-                
+
                 window.scrollTo({
                     top: targetPosition - navHeight,
                     behavior: 'smooth'
@@ -313,47 +288,47 @@ function smoothScroll() {
     });
 }
 
-// Hamburger Menu
+// ===== Hamburger Menu =====
 function initMobileNav() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    
+
+    if (!hamburger || !navLinks) return;
+
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
-        
-        // Animate hamburger
-        if (hamburger.classList.contains('active')) {
-            hamburger.style.transform = 'rotate(90deg)';
-        } else {
-            hamburger.style.transform = 'rotate(0)';
-        }
     });
-    
-    // Close menu when link clicked
+
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             hamburger.classList.remove('active');
-            hamburger.style.transform = 'rotate(0)';
         });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-container')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
     });
 }
 
-// Scroll to Top
+// ===== Scroll to Top =====
 function initScrollTop() {
     const scrollBtn = document.getElementById('scrollTop');
-    
+
+    if (!scrollBtn) return;
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 500) {
-            scrollBtn.style.opacity = '1';
-            scrollBtn.style.visibility = 'visible';
+            scrollBtn.classList.add('visible');
         } else {
-            scrollBtn.style.opacity = '0';
-            scrollBtn.style.visibility = 'hidden';
+            scrollBtn.classList.remove('visible');
         }
     });
-    
+
     scrollBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -362,41 +337,182 @@ function initScrollTop() {
     });
 }
 
-// Fake form submission
+// ===== Contact Form =====
 function initContactForm() {
     const form = document.getElementById('contact-form');
-    
-    form.addEventListener('submit', (e) => {
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const btn = form.querySelector('button');
-        const originalText = btn.textContent;
-        
-        btn.textContent = 'Sending...';
+        const originalText = btn.innerHTML;
+        const name = form.querySelector('#name').value;
+        const email = form.querySelector('#email').value;
+        const subject = form.querySelector('#subject').value;
+        const message = form.querySelector('#message').value;
+
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         btn.disabled = true;
-        
+
         setTimeout(() => {
-            alert("Thank you! Your message has been received. I'll get back to you soon.");
+            const formData = {
+                name,
+                email,
+                subject,
+                message,
+                timestamp: new Date().toISOString()
+            };
+
+            console.log('Form submitted:', formData);
+
             form.reset();
-            btn.textContent = originalText;
+            btn.innerHTML = originalText;
             btn.disabled = false;
-        }, 1400);
+
+            showNotification(
+                'Thank you for reaching out!',
+                'I\'ll get back to you as soon as possible.',
+                'success'
+            );
+        }, 1500);
     });
 }
 
-// Initialize everything
+// ===== Notification Function =====
+function showNotification(title, message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        padding: 20px 30px;
+        background: ${type === 'success' ? 'linear-gradient(135deg, #00CFFF, #22D3EE)' : 'linear-gradient(135deg, #FF6B6B, #FF8E8E)'};
+        color: ${type === 'success' ? '#0F172A' : 'white'};
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        animation: slideIn 0.4s ease-out;
+        max-width: 400px;
+    `;
+
+    notification.innerHTML = `
+        <div style="font-weight: 600; margin-bottom: 5px;">${title}</div>
+        <div style="font-size: 0.9rem; opacity: 0.9;">${message}</div>
+    `;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.4s ease-out';
+        setTimeout(() => notification.remove(), 400);
+    }, 4000);
+}
+
+// ===== Add CSS Animations =====
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        100% { transform: translateY(-120vh) rotate(360deg); }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+    }
+
+    .particle {
+        animation: float 20s linear infinite;
+    }
+
+    .responsibilities {
+        margin-top: 1rem;
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .responsibilities li {
+        margin-bottom: 0.6rem;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .responsibilities li::before {
+        content: '▹';
+        color: #00CFFF;
+        position: absolute;
+        left: 0;
+        font-size: 1.2rem;
+    }
+
+    .nav-link:focus-visible,
+    .btn:focus-visible,
+    .social-link:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+        outline: 2px solid #00CFFF;
+        outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        @keyframes slideIn,
+        @keyframes slideOut {
+            from { transform: translateX(100vw); }
+            to { transform: translateX(0); }
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// ===== Initialize Portfolio =====
 function initializePortfolio() {
-    // Start typing animation
     setTimeout(() => {
         typeEffect();
-    }, 800);
-    
-    // Populate dynamic sections
+    }, 1000);
+
     populateExperience();
     populateProjects();
-    populateSkills();
-    
-    // Initialize interactions
+
     createParticles();
     createMouseGlow();
     initScrollProgress();
@@ -405,19 +521,40 @@ function initializePortfolio() {
     initMobileNav();
     initScrollTop();
     initContactForm();
-    
-    // Keyboard accessibility
+
     document.addEventListener('keydown', (e) => {
-        if (e.key === '/' && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+        if (e.key === '/' && 
+            document.activeElement.tagName !== 'INPUT' && 
+            document.activeElement.tagName !== 'TEXTAREA') {
             e.preventDefault();
             document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
         }
     });
-    
-    console.log('%cPortfolio by Boopesh A S loaded successfully ✨', 'color: #00CFFF; font-family: monospace');
+
+    console.log('%c✨ Portfolio by Boopesh A S loaded successfully!', 
+        'color: #00CFFF; font-family: "Space Grotesk"; font-size: 14px; font-weight: bold;');
 }
 
-// Load the portfolio
-window.addEventListener('load', initializePortfolio);
-Boopesh A S Premium Portfolio - Grok
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePortfolio);
+} else {
+    initializePortfolio();
+}
 
+const imageElements = document.querySelectorAll('img');
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    imageElements.forEach(img => imageObserver.observe(img));
+}
