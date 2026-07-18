@@ -101,7 +101,7 @@ function populateExperience() {
                 <h3>${exp.title}</h3>
                 <p class="company"><i class="fas fa-building"></i> ${exp.company}</p>
                 <p class="period"><i class="fas fa-calendar-alt"></i> ${exp.period}</p>
-                <p style="font-size: 0.9rem; color: #94A3B8;"><i class="fas fa-map-marker-alt"></i> ${exp.location}</p>
+                <p style="font-size: 0.9rem; color: #888888;"><i class="fas fa-map-marker-alt"></i> ${exp.location}</p>
                 <ul class="responsibilities">
                     ${pointsHTML}
                 </ul>
@@ -178,7 +178,7 @@ function createMouseGlow() {
     glow.style.width = '400px';
     glow.style.height = '400px';
     glow.style.borderRadius = '50%';
-    glow.style.background = 'radial-gradient(circle, rgba(0,207,255,0.12) 0%, transparent 70%)';
+    glow.style.background = 'radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%)';
     glow.style.pointerEvents = 'none';
     glow.style.zIndex = '1';
     glow.style.opacity = '0';
@@ -214,7 +214,7 @@ function createParticles() {
         particle.style.cssText = `
             width: ${size}px;
             height: ${size}px;
-            background: rgba(0, 207, 255, ${Math.random() * 0.6 + 0.2});
+            background: rgba(212, 175, 55, ${Math.random() * 0.6 + 0.2});
             border-radius: 50%;
             position: absolute;
             left: ${Math.random() * 100}vw;
@@ -388,8 +388,8 @@ function showNotification(title, message, type = 'success') {
         bottom: 30px;
         right: 30px;
         padding: 20px 30px;
-        background: ${type === 'success' ? 'linear-gradient(135deg, #00CFFF, #22D3EE)' : 'linear-gradient(135deg, #FF6B6B, #FF8E8E)'};
-        color: ${type === 'success' ? '#0F172A' : 'white'};
+        background: ${type === 'success' ? 'linear-gradient(135deg, #D4AF37, #F4D03F)' : 'linear-gradient(135deg, #FF6B6B, #FF8E8E)'};
+        color: ${type === 'success' ? '#0D0D0D' : 'white'};
         border-radius: 12px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         z-index: 10000;
@@ -469,7 +469,7 @@ style.textContent = `
 
     .responsibilities li::before {
         content: '▹';
-        color: #00CFFF;
+        color: #D4AF37;
         position: absolute;
         left: 0;
         font-size: 1.2rem;
@@ -480,7 +480,7 @@ style.textContent = `
     .social-link:focus-visible,
     input:focus-visible,
     textarea:focus-visible {
-        outline: 2px solid #00CFFF;
+        outline: 2px solid #D4AF37;
         outline-offset: 2px;
     }
 
@@ -532,7 +532,7 @@ function initializePortfolio() {
     });
 
     console.log('%c✨ Portfolio by Boopesh A S loaded successfully!', 
-        'color: #00CFFF; font-family: "Space Grotesk"; font-size: 14px; font-weight: bold;');
+        'color: #D4AF37; font-family: "Space Grotesk"; font-size: 14px; font-weight: bold;');
 }
 
 if (document.readyState === 'loading') {
