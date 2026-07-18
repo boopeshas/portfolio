@@ -1,11 +1,179 @@
-<section id="about">
-    <h2>About Me</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boopesh A S - Mechanical Engineer | Design Engineer | CAD Designer | Digital Engineer at TCS">
+    <title>Boopesh A S | Mechanical &amp; Digital Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Boopesh A S - Portfolio">
+    <meta property="og:description" content="Mechanical Engineer specializing in CAD, Design &amp; Manufacturing">
+    <meta property="og:type" content="website">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Boopesh<span class="highlight">.</span></div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="scroll-progress"></div>
+    </nav>
 
-    <p>
-        I am Boopesh A S, a Mechanical Engineering graduate currently working as a Digital Engineer at Tata Consultancy Services (TCS).
-    </p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-container">
+                <div class="profile-image">
+                    <img src="profile.jpg" alt="Boopesh A S">
+                </div>
+            </div>
+            <h1 class="hero-title">Hi, I'm <span class="highlight">Boopesh A S</span></h1>
+            <div class="typing-container">
+                <span id="typing-text" class="typing"></span>
+                <span class="cursor">|</span>
+            </div>
+            <p class="hero-subtitle">Mechanical Engineer crafting innovative solutions in design, manufacturing &amp; digital engineering.</p>
+            
+            <div class="hero-buttons">
+                <a href="Resume.pdf" download class="btn primary-btn">Download Resume</a>
+                <a href="#contact" class="btn secondary-btn">Contact Me</a>
+            </div>
 
-    <p>
-        I have experience in Manufacturing, IoT, Automation, Digital Engineering, and Mechanical Design. I enjoy solving engineering problems and building innovative software and hardware solutions.
-    </p>
-</section>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:boopesh215@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <!-- Floating particles container -->
+        <div class="particles"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-header">
+            <h2>About Me</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Mechanical Engineer with hands-on experience in design engineering, currently working in a design-focused capacity at Tata Consultancy Services (TCS), supporting an OEM mechanical and power equipment manufacturing client.</p>
+                <p>Experienced in CAD, manufacturing engineering, DFMA, SolidWorks, CATIA, AutoCAD, Fusion 360, ANSYS, MATLAB, SQL, Java, HTML, and cross-functional engineering coordination.</p>
+                <p>Passionate about Product Design, Mechanical Design, CAD Engineering, Manufacturing, and Digital Engineering.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="section-header">
+            <h2>Experience</h2>
+        </div>
+        <div class="timeline">
+            <!-- Experience items will be populated by JS -->
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <!-- Project cards populated by JS -->
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="section-header">
+            <h2>Skills</h2>
+        </div>
+        <div class="skills-container">
+            <!-- Skills populated by JS -->
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="section">
+        <div class="section-header">
+            <h2>Achievements</h2>
+        </div>
+        <div class="achievements-grid">
+            <div class="achievement-card glass">
+                <div class="achievement-icon">🏆</div>
+                <h3>1st Place</h3>
+                <p>Dassault Systemes Bracket Design-a-thon</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section">
+        <div class="section-header">
+            <h2>Education</h2>
+        </div>
+        <div class="education-card glass">
+            <h3>Bachelor of Engineering in Mechanical Engineering</h3>
+            <p>VIT Vellore</p>
+            <p class="cgpa">CGPA: 8.05</p>
+            <p class="year">2019 - 2023</p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact-section">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:boopesh215@gmail.com">boopesh215@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+919489696215">+91 9489696215</a>
+                </div>
+            </div>
+            <form id="contact-form" class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn primary-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Boopesh A S. Made with ❤️ using pure HTML, CSS &amp; JS.</p>
+    </footer>
+
+    <!-- Scroll to top -->
+    <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
